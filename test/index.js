@@ -1,11 +1,18 @@
-/**
- * Created by qingwen.ye on 30/11/2017.
+/*
+ * @Author: yhl, yhl@1024hw.org
+ * @Date: 2018-05-24 20:22:09
+ * @Last Modified by: yhl
+ * @Last Modified time: 2018-05-29 21:44:39
  */
-const supertest = require('supertest')
-const app = require('../src/')
 
-test('echo status', async () => {
-  const response = await supertest(app.callback()).get('/')
-  expect(response.status).toBe(200)
-  expect(response.body).toEqual({ code: 0, status: 'ok' })
+test('1 + 1', () => {
+  const response = 1 + 1
+  expect(response).toBe(2)
+  expect(response).toEqual(2)
+})
+
+test('1 - 1', () => {
+  const response = 1 - 1
+  expect(response).toBe(0)
+  expect(response).toEqual(0)
 })

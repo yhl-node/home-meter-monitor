@@ -18,7 +18,6 @@ jobs:
       script:
         - yarn
         - yarn lint
-        - yarn test
     - stage: deploy
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin $DOCKER_IMG_HOST

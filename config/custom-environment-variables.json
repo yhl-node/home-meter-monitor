@@ -1,5 +1,15 @@
 {
   "server": {
     "port": "NODE_PORT"
+  },
+  "mid": "MID",
+  "infoUrl": "INFO_URL",
+  "mail": {
+    "user": "MAIL_USER",
+    "pwd": "MAIL_PWD",
+    "smtp": "MAIL_SMTP_SERVER",
+    "smtpPort": "MAIL_SMTP_PORT",
+    "secure": "MAIL_SECURE",
+    "toUser": "MAIL_TO_USER"
   }
 }

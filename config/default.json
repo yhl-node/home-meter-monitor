@@ -1,5 +1,15 @@
 {
   "server": {
     "port": 3000
+  },
+  "mid": 0,
+  "infoUrl": "",
+  "mail": {
+    "user": "MAIL_USER",
+    "pwd": "MAIL_PWD",
+    "smtp": "smtp.qq.com",
+    "smtpPort": 465,
+    "secure": true,
+    "toUser": "MAIL_TO_USER"
   }
 }
