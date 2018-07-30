@@ -7,26 +7,20 @@ services:
   - docker
 env:
   - NODE_PORT=3000
-  - REPO_NAME=home-meter-monitor
 stages:
-  - test
   - name: deploy
     if: (branch = master) AND (type != pull_request)
 
 jobs:
   include:
-    - stage: test
-      script:
-        - yarn
-        - yarn lint
     - stage: deploy
       script:
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin $DOCKER_IMG_HOST
-        - docker build --rm=false -t $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER .
-        - docker tag $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER
-        - docker tag $DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:latest
-        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:$TRAVIS_BUILD_NUMBER
-        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/$REPO_NAME:latest
+        - docker build --rm=false -t $DOCKER_NAMESPACE/home-meter-monitor:$TRAVIS_BUILD_NUMBER .
+        - docker tag $DOCKER_NAMESPACE/home-meter-monitor:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/home-meter-monitor:$TRAVIS_BUILD_NUMBER
+        - docker tag $DOCKER_NAMESPACE/home-meter-monitor:$TRAVIS_BUILD_NUMBER $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/home-meter-monitor:latest
+        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/home-meter-monitor:$TRAVIS_BUILD_NUMBER
+        - docker push $DOCKER_IMG_HOST/$DOCKER_NAMESPACE/home-meter-monitor:latest
 notifications:
   email:
     recipients:
