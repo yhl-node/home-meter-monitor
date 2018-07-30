@@ -7,6 +7,7 @@ services:
   - docker
 env:
   - NODE_PORT=3000
+  - REPO_NAME=home-meter-monitor
 stages:
   - test
   - name: deploy
